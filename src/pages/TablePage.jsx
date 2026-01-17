@@ -11,7 +11,6 @@ function TablePage() {
 
   return (
     <div>
-      <h2>Heatmap-Ready Data</h2>
       <HeatmapTable data={heatmapData} />
     </div>
   );

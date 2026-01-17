@@ -32,22 +32,33 @@ export function normalizeData(rows) {
 
 export function getHeatmapColor(value, min, max) {
     if (min === max) {
-      return "rgb(254, 243, 199)"; 
+      return "#fff8dd"; 
     }
   
     const ratio = (value - min) / (max - min);
   
-    if (ratio <= 0.5) {
-      
-      const greenToYellow = ratio / 0.5;
-      const red = Math.round(255 * greenToYellow);
-      return `rgb(${red}, 200, 0)`;
-    } else {
-      
-      const yellowToRed = (ratio - 0.5) / 0.5;
-      const green = Math.round(200 * (1 - yellowToRed));
-      return `rgb(255, ${green}, 0)`;
+    
+    if (ratio <= 0.2) {
+      return "#cfe9d9"; 
     }
+  
+    
+    if (ratio <= 0.4) {
+      return "#e6f4ea"; 
+    }
+  
+    
+    if (ratio <= 0.6) {
+      return "#fff8dd"; 
+    }
+  
+    
+    if (ratio <= 0.8) {
+      return "#fdecec"; 
+    }
+  
+    
+    return "#f8d7da"; 
   }
 
   export function enrichSuppliersWithHeatmap(row) {
